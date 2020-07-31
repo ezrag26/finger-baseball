@@ -1,0 +1,33 @@
+{
+  "name": "fingerbaseball",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./site/index.js",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0"
+  },
+  "scripts": {
+    "build": "webpack --mode development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezrag26/finger-baseball.git"
+  },
+  "author": "Ezra Gordon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ezrag26/finger-baseball/issues"
+  },
+  "homepage": "https://github.com/ezrag26/finger-baseball#readme"
+}

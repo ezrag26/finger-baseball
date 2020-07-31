@@ -181,7 +181,7 @@ let keyboardClick = (event) => {
   if (buttonPressed === 97) {
     storedValueAway = 1;
     disable(jsPlayer1)
-  }  else if (buttonPressed === 115) {
+  } else if (buttonPressed === 115) {
     storedValueAway = 2
     disable(jsPlayer1)
   } else if (buttonPressed === 100) {
