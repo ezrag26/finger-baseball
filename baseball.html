@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/header.css">
 </head>
-<body onkeypress="keyboardClick(event)">
-
+<!--<body onkeypress="keyboardClick(event)">-->
+<body>
   <header class="header group">
     <nav class="flex">
       <h1 class="header_title">Finger Baseball</h1>
@@ -23,190 +23,190 @@
     </nav>
   </header>
 
-  <section class="main-section-flex">
-    <div class="lineup-flex one">
-      <h2 id="js-away">[Away Team] <span id="js-runs"></span></h2>
-      <div class="choices-flex group">
-        <ul class="button-flex-1" id="player1">
-          <li><button class="js-player-1" value="1" onclick="disable(jsPlayer1);makeSelection()">1</button></li>
-          <li><button class="js-player-1" value="2" onclick="disable(jsPlayer1);makeSelection()">2</button></li>
-          <li><button class="js-player-1" value="3" onclick="disable(jsPlayer1);makeSelection()">3</button></li>
-          <li><button class="js-player-1" value="4" onclick="disable(jsPlayer1);makeSelection()">4</button></li>
-          <li><button class="js-player-1" value="5" onclick="disable(jsPlayer1);makeSelection()">5</button></li>
-        </ul>
-      </div>
-      <div>
-        <!-- <p class="stored-number" id="js-number-storage-1">[Number is picked]</p> -->
-      </div>
-      <table class="batters" cellspacing="0">
-        <tr class="no-hightlight">
-          <td></td>
-          <td>AB</td>
-          <td>Hits</td>
-          <td>Walks</td>
-        </tr>
-        <tr>
-          <td id="away-batter-1">[Away Batter 1]</td>
-          <td id="away-batter-1-ab">0</td>
-          <td id="away-batter-1-hits">0</td>
-          <td id="away-batter-1-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-2">[Away Batter 2]</td>
-          <td id="away-batter-2-ab">0</td>
-          <td id="away-batter-2-hits">0</td>
-          <td id="away-batter-2-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-3">[Away Batter 3]</td>
-          <td id="away-batter-3-ab">0</td>
-          <td id="away-batter-3-hits">0</td>
-          <td id="away-batter-3-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-4">[Away Batter 4]</td>
-          <td id="away-batter-4-ab">0</td>
-          <td id="away-batter-4-hits">0</td>
-          <td id="away-batter-4-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-5">[Away Batter 5]</td>
-          <td id="away-batter-5-ab">0</td>
-          <td id="away-batter-5-hits">0</td>
-          <td id="away-batter-5-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-6">[Away Batter 6]</td>
-          <td id="away-batter-6-ab">0</td>
-          <td id="away-batter-6-hits">0</td>
-          <td id="away-batter-6-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-7">[Away Batter 7]</td>
-          <td id="away-batter-7-ab">0</td>
-          <td id="away-batter-7-hits">0</td>
-          <td id="away-batter-7-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-8">[Away Batter 8]</td>
-          <td id="away-batter-8-ab">0</td>
-          <td id="away-batter-8-hits">0</td>
-          <td id="away-batter-8-walks">0</td>
-        </tr>
-        <tr>
-          <td id="away-batter-9">[Away Batter 9]</td>
-          <td id="away-batter-9-ab">0</td>
-          <td id="away-batter-9-hits">0</td>
-          <td id="away-batter-9-walks">0</td>
-        </tr>
-      </table>
-    </div>
-    <div class="lineup-flex two">
-      <h2 id="js-home">[Home Team]</h2>
-      <div class="choices-flex group">
-        <ul class="button-flex-2">
-          <li><button class="js-player-2" value="1" onclick="disable(jsPlayer2);makeSelection()">1</button></li>
-          <li><button class="js-player-2" value="2" onclick="disable(jsPlayer2);makeSelection()">2</button></li>
-          <li><button class="js-player-2" value="3" onclick="disable(jsPlayer2);makeSelection()">3</button></li>
-          <li><button class="js-player-2" value="4" onclick="disable(jsPlayer2);makeSelection()">4</button></li>
-          <li><button class="js-player-2" value="5" onclick="disable(jsPlayer2);makeSelection()">5</button></li>
-        </ul>
-      </div>
-      <div>
-        <!-- <p class="stored-number" id="js-number-storage-2">[Number is picked]</p> -->
-      </div>
-      <table class="batters" cellspacing="0">
-        <tr class="no-hightlight">
-          <td></td>
-          <td>AB</td>
-          <td>Hits</td>
-          <td>Walks</td>
-        </tr>
-        <tr>
-          <td id="home-batter-1">[Home Batter 1]</td>
-          <td id="home-batter-1-ab">0</td>
-          <td id="home-batter-1-hits">0</td>
-          <td id="home-batter-1-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-2">[Home Batter 2]</td>
-          <td id="home-batter-2-ab">0</td>
-          <td id="home-batter-2-hits">0</td>
-          <td id="home-batter-2-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-3">[Home Batter 3]</td>
-          <td id="home-batter-3-ab">0</td>
-          <td id="home-batter-3-hits">0</td>
-          <td id="home-batter-3-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-4">[Home Batter 4]</td>
-          <td id="home-batter-4-ab">0</td>
-          <td id="home-batter-4-hits">0</td>
-          <td id="home-batter-4-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-5">[Home Batter 5]</td>
-          <td id="home-batter-5-ab">0</td>
-          <td id="home-batter-5-hits">0</td>
-          <td id="home-batter-5-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-6">[Home Batter 6]</td>
-          <td id="home-batter-6-ab">0</td>
-          <td id="home-batter-6-hits">0</td>
-          <td id="home-batter-6-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-7">[Home Batter 7]</td>
-          <td id="home-batter-7-ab">0</td>
-          <td id="home-batter-7-hits">0</td>
-          <td id="home-batter-7-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-8">[Home Batter 8]</td>
-          <td id="home-batter-8-ab">0</td>
-          <td id="home-batter-8-hits">0</td>
-          <td id="home-batter-8-walks">0</td>
-        </tr>
-        <tr>
-          <td id="home-batter-9">[Home Batter 9]</td>
-          <td id="home-batter-9-ab">0</td>
-          <td id="home-batter-9-hits">0</td>
-          <td id="home-batter-9-walks">0</td>
-        </tr>
-      </table>
-    </div>
+<!--  <section class="main-section-flex">-->
+<!--    <div class="lineup-flex one">-->
+<!--      <h2 id="js-away">[Away Team] <span id="js-runs"></span></h2>-->
+<!--      <div class="choices-flex group">-->
+<!--        <ul class="button-flex-1" id="player1">-->
+<!--          <li><button class="js-player-1" value="1" onclick="disable(jsPlayer1);makeSelection()">1</button></li>-->
+<!--          <li><button class="js-player-1" value="2" onclick="disable(jsPlayer1);makeSelection()">2</button></li>-->
+<!--          <li><button class="js-player-1" value="3" onclick="disable(jsPlayer1);makeSelection()">3</button></li>-->
+<!--          <li><button class="js-player-1" value="4" onclick="disable(jsPlayer1);makeSelection()">4</button></li>-->
+<!--          <li><button class="js-player-1" value="5" onclick="disable(jsPlayer1);makeSelection()">5</button></li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        &lt;!&ndash; <p class="stored-number" id="js-number-storage-1">[Number is picked]</p> &ndash;&gt;-->
+<!--      </div>-->
+<!--      <table class="batters" cellspacing="0">-->
+<!--        <tr class="no-hightlight">-->
+<!--          <td></td>-->
+<!--          <td>AB</td>-->
+<!--          <td>Hits</td>-->
+<!--          <td>Walks</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-1">[Away Batter 1]</td>-->
+<!--          <td id="away-batter-1-ab">0</td>-->
+<!--          <td id="away-batter-1-hits">0</td>-->
+<!--          <td id="away-batter-1-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-2">[Away Batter 2]</td>-->
+<!--          <td id="away-batter-2-ab">0</td>-->
+<!--          <td id="away-batter-2-hits">0</td>-->
+<!--          <td id="away-batter-2-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-3">[Away Batter 3]</td>-->
+<!--          <td id="away-batter-3-ab">0</td>-->
+<!--          <td id="away-batter-3-hits">0</td>-->
+<!--          <td id="away-batter-3-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-4">[Away Batter 4]</td>-->
+<!--          <td id="away-batter-4-ab">0</td>-->
+<!--          <td id="away-batter-4-hits">0</td>-->
+<!--          <td id="away-batter-4-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-5">[Away Batter 5]</td>-->
+<!--          <td id="away-batter-5-ab">0</td>-->
+<!--          <td id="away-batter-5-hits">0</td>-->
+<!--          <td id="away-batter-5-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-6">[Away Batter 6]</td>-->
+<!--          <td id="away-batter-6-ab">0</td>-->
+<!--          <td id="away-batter-6-hits">0</td>-->
+<!--          <td id="away-batter-6-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-7">[Away Batter 7]</td>-->
+<!--          <td id="away-batter-7-ab">0</td>-->
+<!--          <td id="away-batter-7-hits">0</td>-->
+<!--          <td id="away-batter-7-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-8">[Away Batter 8]</td>-->
+<!--          <td id="away-batter-8-ab">0</td>-->
+<!--          <td id="away-batter-8-hits">0</td>-->
+<!--          <td id="away-batter-8-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="away-batter-9">[Away Batter 9]</td>-->
+<!--          <td id="away-batter-9-ab">0</td>-->
+<!--          <td id="away-batter-9-hits">0</td>-->
+<!--          <td id="away-batter-9-walks">0</td>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--    <div class="lineup-flex two">-->
+<!--      <h2 id="js-home">[Home Team]</h2>-->
+<!--      <div class="choices-flex group">-->
+<!--        <ul class="button-flex-2">-->
+<!--          <li><button class="js-player-2" value="1" onclick="disable(jsPlayer2);makeSelection()">1</button></li>-->
+<!--          <li><button class="js-player-2" value="2" onclick="disable(jsPlayer2);makeSelection()">2</button></li>-->
+<!--          <li><button class="js-player-2" value="3" onclick="disable(jsPlayer2);makeSelection()">3</button></li>-->
+<!--          <li><button class="js-player-2" value="4" onclick="disable(jsPlayer2);makeSelection()">4</button></li>-->
+<!--          <li><button class="js-player-2" value="5" onclick="disable(jsPlayer2);makeSelection()">5</button></li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        &lt;!&ndash; <p class="stored-number" id="js-number-storage-2">[Number is picked]</p> &ndash;&gt;-->
+<!--      </div>-->
+<!--      <table class="batters" cellspacing="0">-->
+<!--        <tr class="no-hightlight">-->
+<!--          <td></td>-->
+<!--          <td>AB</td>-->
+<!--          <td>Hits</td>-->
+<!--          <td>Walks</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-1">[Home Batter 1]</td>-->
+<!--          <td id="home-batter-1-ab">0</td>-->
+<!--          <td id="home-batter-1-hits">0</td>-->
+<!--          <td id="home-batter-1-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-2">[Home Batter 2]</td>-->
+<!--          <td id="home-batter-2-ab">0</td>-->
+<!--          <td id="home-batter-2-hits">0</td>-->
+<!--          <td id="home-batter-2-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-3">[Home Batter 3]</td>-->
+<!--          <td id="home-batter-3-ab">0</td>-->
+<!--          <td id="home-batter-3-hits">0</td>-->
+<!--          <td id="home-batter-3-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-4">[Home Batter 4]</td>-->
+<!--          <td id="home-batter-4-ab">0</td>-->
+<!--          <td id="home-batter-4-hits">0</td>-->
+<!--          <td id="home-batter-4-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-5">[Home Batter 5]</td>-->
+<!--          <td id="home-batter-5-ab">0</td>-->
+<!--          <td id="home-batter-5-hits">0</td>-->
+<!--          <td id="home-batter-5-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-6">[Home Batter 6]</td>-->
+<!--          <td id="home-batter-6-ab">0</td>-->
+<!--          <td id="home-batter-6-hits">0</td>-->
+<!--          <td id="home-batter-6-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-7">[Home Batter 7]</td>-->
+<!--          <td id="home-batter-7-ab">0</td>-->
+<!--          <td id="home-batter-7-hits">0</td>-->
+<!--          <td id="home-batter-7-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-8">[Home Batter 8]</td>-->
+<!--          <td id="home-batter-8-ab">0</td>-->
+<!--          <td id="home-batter-8-hits">0</td>-->
+<!--          <td id="home-batter-8-walks">0</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td id="home-batter-9">[Home Batter 9]</td>-->
+<!--          <td id="home-batter-9-ab">0</td>-->
+<!--          <td id="home-batter-9-hits">0</td>-->
+<!--          <td id="home-batter-9-walks">0</td>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    </div>-->
 
-    <div class="play-flex three">
-      <div class="middle">
-        <div class="scoreboard-flex">
-          <div class="inning-out-flex">
-            <h3><span id="js-inning">Inning</span></h3>
-            <h3>Outs: <span id="js-outs"></span></h3>
-          </div>
-          <div class="bases">
-            <div id="base-1">
-            </div>
-            <div id="base-2">
-            </div>
-            <div id="base-3">
-            </div>
-          </div>
-        </div>
-        <div class="pitch-ab">
-          <h3>Pitching: <span id="js-pitching"></span></h3>
-          <h3 id="js-atBat">At Bat: <span id="at-bat"></span></h3>
-          <h3>Result: <span id="js-result"></span></h3>
-        </div>
-        <div class="play-by-play">
-          <h2>Play-By-Play</h2>
-        </div>
-      </div>
-      <!-- <img src="Images/baseball-field.png" class="baseball_field"> -->
-    </div>
-  </section>
+<!--    <div class="play-flex three">-->
+<!--      <div class="middle">-->
+<!--        <div class="scoreboard-flex">-->
+<!--          <div class="inning-out-flex">-->
+<!--            <h3><span id="js-inning">Inning</span></h3>-->
+<!--            <h3>Outs: <span id="js-outs"></span></h3>-->
+<!--          </div>-->
+<!--          <div class="bases">-->
+<!--            <div id="base-1">-->
+<!--            </div>-->
+<!--            <div id="base-2">-->
+<!--            </div>-->
+<!--            <div id="base-3">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="pitch-ab">-->
+<!--          <h3>Pitching: <span id="js-pitching"></span></h3>-->
+<!--          <h3 id="js-atBat">At Bat: <span id="at-bat"></span></h3>-->
+<!--          <h3>Result: <span id="js-result"></span></h3>-->
+<!--        </div>-->
+<!--        <div class="play-by-play">-->
+<!--          <h2>Play-By-Play</h2>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; <img src="Images/baseball-field.png" class="baseball_field"> &ndash;&gt;-->
+<!--    </div>-->
+<!--  </section>-->
 
   <!-- <section class="scoresheet">
     <h2>Scoresheet</h2>
@@ -223,7 +223,7 @@
   </footer>
 
 
-  <script src="js/baseball.js"></script>
+<!--  <script src="js/baseball.js"></script>-->
   <script src="dist/main_bundle.js"></script>
 </body>
 </html>
