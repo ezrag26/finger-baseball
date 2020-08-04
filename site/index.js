@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import ReactDOM from 'react-dom'
 
+const randomBits = () => Math.random().toString(36).slice(2)
+
 const OUTS_PER_INNING = 6
 
 const isTopOfInning = (outs) => (outs % OUTS_PER_INNING) < (OUTS_PER_INNING / 2)
@@ -17,7 +19,7 @@ const Situation = ({ outs, bases }) => {
         <div><span>{isTopOfInning() ? 'Top' : 'Bottom'} {inning()}</span></div>
         <div><span>Outs: {outsThisInning()}</span></div>
       </div>
-      <div><span>{bases[1]}</span><span>{bases[2]}</span><span>{bases[3]}</span></div>
+      <div><span>{bases.first ? 1 : 0}</span><span>{bases.second ? 1 : 0}</span><span>{bases.third ? 1 : 0}</span></div>
     </div>
   )
 }
@@ -41,20 +43,17 @@ const Boxscore = ({ team, runs }) => {
 }
 
 const Bases = {
-  new: () => {
+  new: ({ atBat }) => {
     return {
-      first: false,
-      second: false,
-      third: false,
-      home: false
+      // first: undefined,
+      // second: undefined,
+      // third: undefined,
+      home: { onBase: atBat }
     }
-  },
-  copy: ({ obj }) => {
-    return Object.keys(obj).reduce((reduced, base) => ({
-      ...reduced, [base]: obj[base]
-    }), {})
   }
 }
+
+const BASES = ['first', 'second', 'third', 'home']
 
 const Index = () => {
   const [outs, setOuts] = useState(0)
@@ -62,46 +61,56 @@ const Index = () => {
   const [homeRuns, setHomeRuns] = useState(0)
   const [awaySelection, setAwaySelection] = useState()
   const [homeSelection, setHomeSelection] = useState()
-  const [bases, setBases] = useState([0, 0, 0, 0])
+  const [bases, setBases] = useState(Bases.new({ atBat: randomBits() }))
 
   const advanceRunners = (selection, setRuns) => {
-    const newBases = [...bases]
+    const updatedBases = {...bases}
 
-    const findFirstEmptyBase = () => newBases.indexOf(0, 1) // start at first base
+    const findFirstEmptyBase = () => BASES.reduce((emptyBase, current) => emptyBase === 'home' ? (updatedBases[current] ? emptyBase : current) : emptyBase, 'home')
 
     const pushRunners = () => {
-      const openBase = findFirstEmptyBase()
+      const openBase = BASES.indexOf(findFirstEmptyBase())
+      const home = updatedBases.home
+      updatedBases.home = {}
 
-      ++newBases[openBase === -1 ? 0 : openBase]
+      for (let i = openBase; i > 0; --i) {
+        updatedBases[BASES[i]] = updatedBases[BASES[i - 1]]
+      }
 
-      return newBases[0]
+      updatedBases.first = home
+
+      return updatedBases.home.onBase ? 1 : 0
     }
 
     const advanceAllRunners = () => {
-      const numBases = newBases.length
+      const NUM_BASES = BASES.length
+      let runsScored = 0
 
-      for (let i = numBases - 1; i > 0; --i) {
-        if (newBases[i]) {
-          newBases[i] = 0
-          ++newBases[(i + selection) >= numBases ? 0 : i + selection]
+      for (let i = NUM_BASES - 2; i >= 0; --i) {
+        if (updatedBases[BASES[i]]) {
+          if (i + selection + 1 >= NUM_BASES) ++runsScored
+          else updatedBases[BASES[i + selection]] = updatedBases[BASES[i]]
+
+          updatedBases[BASES[i]] = undefined
         }
       }
 
-      ++newBases[selection % 4]
+      if (selection === NUM_BASES) ++runsScored
+      else updatedBases[BASES[selection - 1]] = updatedBases.home
 
-      return newBases[0]
+      updatedBases.home = {}
+
+      return runsScored
     }
 
     const walk = () => selection === 5
 
-    setRuns(runs => runs + walk() ? pushRunners() : advanceAllRunners())
-
-    newBases[0] = 0 // reset runs scored for next play
-    setBases(newBases)
+    setRuns(runs => runs + (walk() ? pushRunners() : advanceAllRunners()))
+    setBases(updatedBases)
   }
 
   useEffect(() => {
-    if (outsThisInning(outs) === 0) setBases([0, 0, 0, 0])
+    if (outsThisInning(outs) === 0) setBases(Bases.new({ atBat: randomBits() }))
   }, [outs])
 
   useEffect(() => {
@@ -112,6 +121,7 @@ const Index = () => {
 
       setAwaySelection(null)
       setHomeSelection(null)
+      setBases(bases => ({ ...bases, home: { onBase: randomBits() } }))
     }
   }, [awaySelection, homeSelection])
 
